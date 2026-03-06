@@ -49,7 +49,7 @@ Risk prediction এ high-risk case miss করা***
 ***`Oversampling` → Minority class এর data increase করা***
 <img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img3.png" width="900">  
 
-## ***`1️⃣ Undersampling`***   
+## ***`1️⃣ Undersampling`***  
 ***ধরা যাক dataset এ:***   
 - ***Non-Addicted = 900***
 - ***Addicted = 100***
@@ -80,4 +80,15 @@ Model যেন difficult cases থেকে learn করে।***
 Small dataset হলে performance degrade হতে পারে   
 Majority class এর pattern পুরোটা learn করা সম্ভব নাও হতে পারে***   
 
+---
+## ***`1️⃣ Oversampling`***     
+***ধরা যাক dataset এ:***   
+- ***Non-Addicted = 900***
+- ***Addicted = 100***
 
+***Undersampling করার পরে:***  
+- ***Non-Addicted = 900***
+- ***Addicted = 900***
+
+<img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img2.png" width="490"> <img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img4.png" width="500">  
+<img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img7.png" width="490"> <img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img8.png" width="500"> 
