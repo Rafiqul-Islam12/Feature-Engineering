@@ -43,7 +43,11 @@ Risk prediction এ high-risk case miss করা***
 
 ---
 # ***Techniques to Handle Imbalanced Data***
-
+- [***Undersampling***](https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/1.%20Undersampling.ipynb)  
+- [***Oversampling***](https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/2.%20Oversampling.ipynb)
+- [***SMOTE***](https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/3.%20SMOTE.ipynb)   
+  
+---
 ## ***Undersampling and Oversampling***
 ***`Undersampling` → Majority class এর data reduce করা***   
 ***`Oversampling` → Minority class এর data increase করা***
@@ -62,7 +66,7 @@ Risk prediction এ high-risk case miss করা***
 <img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img5.png" width="490"> <img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img6.png" width="500">  
 
 ***`Types`***     
-***1. Random Undersampling    
+***1. `Random Undersampling`    
 Simple technique, Faster.    
 Majority class থেকে randomly কিছু samples remove করা হয়।***    
 
@@ -81,14 +85,90 @@ Small dataset হলে performance degrade হতে পারে
 Majority class এর pattern পুরোটা learn করা সম্ভব নাও হতে পারে***   
 
 ---
-## ***`1️⃣ Oversampling`***     
+## ***`2️⃣ Oversampling`***     
 ***ধরা যাক dataset এ:***   
 - ***Non-Addicted = 900***
 - ***Addicted = 100***
 
-***Undersampling করার পরে:***  
+***Oversampling করার পরে:***  
 - ***Non-Addicted = 900***
 - ***Addicted = 900***
 
 <img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img2.png" width="490"> <img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img4.png" width="500">  
-<img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img7.png" width="490"> <img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img8.png" width="500"> 
+<img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img7.png" width="490"> <img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img8.png" width="500">   
+
+***`Types`***   
+***1. `Random Oversampling`  
+এটা সবচেয়ে simple technique।   
+Minority class এর samples randomly duplicate করা হয়।***  
+   
+***2. SMOTE***   
+
+---
+## ***`3️⃣ SMOTE (Synthetic Minority Over-sampling Technique)`***   
+***একটি popular oversampling technique.   
+Normal oversampling এ minority class data duplicate করা হয়, কিন্তু SMOTE duplicate না করে নতুন synthetic samples generate করে।   
+এর ফলে dataset balance হয় এবং overfitting এর probability কমে যায়।***    
+
+***ধরা যাক dataset এ:***   
+- ***Non-Addicted = 900***
+- ***Addicted = 100***
+
+***SMOTE করার পরে:***  
+- ***Non-Addicted = 900***
+- ***Addicted = 900***    
+  
+<img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img9.png" width="900">   
+
+#### ***`SMOTE Algorithm`***  
+***`Step 1`: Train KNN on Minority Class   
+প্রথমে শুধুমাত্র minority class observations নিয়ে একটি KNN model ব্যবহার করা হয়।   
+Usually: k = 5 nearest neighbors   
+প্রতিটি minority data point এর সবচেয়ে কাছের 5টি minority data point identify করা হয়।***    
+
+***`Step 2`: Randomly Select Minority Samples   
+Minority class থেকে কিছু samples randomly select করা হয়।***    
+
+***`Step 3`: Randomly Select One Neighbor    
+KNN থেকে পাওয়া neighbors এর মধ্যে একটি neighbor randomly select করা হয়।***    
+   
+***`Step 4`: Generate Random Number   
+0 এবং 1 এর মধ্যে একটি random number generate করা হয়।***   
+
+***`Step 5`: Create Synthetic Sample   
+নতুন sample তৈরি করা হয় original sample এবং neighbor এর মধ্যে interpolation করে।    
+Formula:    
+Synthetic sample = original sample + factor × (neighbor − original sample)***    
+
+***`Example`***  
+***Let,  
+Original sample A = (2,3)    
+Neighbor B = (4,5)    
+factor = 0.5***   
+
+***Synthetic sample:   
+= A + 0.5 × (B − A)   
+= (2,3) + 0.5 × (2,2)   
+= (2,3) + (1,1)    
+= (3,4)***    
+
+***New Synthetic point = (3,4)***    
+
+<img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img2.png" width="490"> <img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img4.png" width="500">  
+<img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img10.png" width="490"> <img src="https://github.com/Rafiqul-Islam12/Feature-Engineering/blob/main/Handling%20Imbalanced%20Data/images/img11.png" width="500">       
+
+---
+# ***Resources***
+- [***Imbalanced Data in Machine Learning (CampusX)***](https://www.youtube.com/watch?v=yh2AKoJCV3k&t=1744s)  
+- [***Handling Imbalanced Data***](https://medium.com/@dakshrathi/handling-imbalanced-data-key-techniques-for-better-machine-learning-6e33b466f8b7)
+
+---
+## ***Author***    
+***Md. Rafiqul Islam   
+CSE, CoU***  
+
+
+
+
+
+
